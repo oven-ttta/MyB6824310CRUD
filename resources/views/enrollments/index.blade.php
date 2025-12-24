@@ -17,9 +17,9 @@
             <p class="text-muted">ตัวอย่างการใช้ SQL View ร่วมกับ Laravel</p>
 
             <!-- ปุ่มรายงาน -->
-            <a href="{{ route('enrollments.report') }}" class="btn btn-info">
+            <!-- <a href="{{ route('enrollments.report') }}" class="btn btn-info">
                 <i class="fas fa-chart-bar"></i> รายงาน
-            </a>
+            </a> -->
         </div>
         <div class="col-md-4 text-end">
             <!-- ปุ่มเปิดโมดัลเพิ่มข้อมูล -->
