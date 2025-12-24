@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="bg-light">
+<body class="bg-light" style="background-image: url('{{ asset('Images/bg.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed; min-height: 100vh;">
 
 <div class="container mt-5">
     <div class="row mb-4">
@@ -61,8 +61,9 @@
                         <td><span class="badge bg-secondary">{{ $row->student_code }}</span></td>
                         <!-- ลิงก์ไปยังหน้ารายละเอียดนักศึกษา -->
                         <td>
-                            <a class="text-decoration-none fw-bold" href="{{ route('students.show', $row->student_id) }}">
-                                {{ $row->student_name }}
+                            <!-- ชื่อนักศึกษาไปที่หน้า details ได้ ในอาทิตย์หน้า -->
+                            <a href="{{ route('students.show', $row->student_id) }}" class="text-decoration-none fw-bold">
+                                {{ $row->student_name }} <i class="fas fa-external-link-alt fa-xs text-muted"></i>
                             </a>
                         </td>
                         <!-- คณะ -->

@@ -2,7 +2,12 @@
   "permissions": {
     "allow": [
       "Bash(php artisan key:generate:*)",
-      "Bash(C:xamppphpphp.exe -r \"echo ''PHP is working'';\")"
+      "Bash(C:xamppphpphp.exe -r \"echo ''PHP is working'';\")",
+      "Bash(powershell.exe -NoProfile -Command \"& ''C:\\\\xampp\\\\php\\\\php.exe'' ''C:\\\\xampp\\\\htdocs\\\\MyB6824310crud\\\\artisan'' key:generate 2>&1\")",
+      "Bash(powershell.exe:*)",
+      "Bash(dir \"C:\\\\xampp\\\\htdocs\\\\MyB6824310crud\\\\public\")",
+      "Bash(mkdir:*)",
+      "Bash(del \"C:\\\\xampp\\\\htdocs\\\\MyB6824310crud\\\\create_bg.php\")"
     ]
   }
 }
