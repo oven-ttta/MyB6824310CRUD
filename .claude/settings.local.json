@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php artisan key:generate:*)",
+      "Bash(C:xamppphpphp.exe -r \"echo ''PHP is working'';\")"
+    ]
+  }
+}
