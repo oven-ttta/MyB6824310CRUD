@@ -16,10 +16,11 @@
             <h2 class="text-primary text-muted"><i class="fas fa-university"></i> ระบบลงทะเบียนเรียน</h2>
             <p class="text-muted">ตัวอย่างการใช้ SQL View ร่วมกับ Laravel</p>
 
-            <!-- ปุ่มรายงาน -->
-            <!-- <a href="{{ route('enrollments.report') }}" class="btn btn-info">
-                <i class="fas fa-chart-bar"></i> รายงาน
-            </a> -->
+            <!-- ปุ่มรายงาน ให้เพิ่มอาทิตย์ถัดไป -->
+            <a href="{{ route('report.index') }}" class="btn btn-sm btn-info text-white">
+                <i class="fas fa-file-alt"></i> รายงานตามรายวิชา
+            </a>
+            <!-- สิ้นสุดปุ่มรายงาน -->
         </div>
         <div class="col-md-4 text-end">
             <!-- ปุ่มเปิดโมดัลเพิ่มข้อมูล -->
@@ -30,6 +31,29 @@
             <button type="button" class="btn btn-warning ms-2" data-bs-toggle="modal" data-bs-target="#createStudentModal">
                 <i class="fas fa-user-plus"></i> เพิ่มนักศึกษาใหม่
             </button>
+        </div>
+    </div>
+
+    <!-- ฟอร์มค้นหา -->
+    <div class="row mb-3">
+        <div class="col-md-6 ms-auto">
+            <form action="{{ route('enrollments.index') }}" method="GET">
+                <div class="input-group">
+                    <input type="text"
+                        name="search"
+                        class="form-control"
+                        placeholder="ค้นหาชื่อ, รหัส, หรือวิชา..."
+                        value="{{ request('search') }}">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fas fa-search"></i> ค้นหา
+                    </button>
+                    @if(request('search'))
+                        <a href="{{ route('enrollments.index') }}" class="btn btn-secondary">
+                            ล้างค่า
+                        </a>
+                    @endif
+                </div>
+            </form>
         </div>
     </div>
 

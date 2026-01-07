@@ -11,9 +11,27 @@ use App\Models\Department;
 
 class EnrollmentController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $enrollments = EnrollmentDetail::all();
+        // เริ่มต้น Query จาก View
+        $query = EnrollmentDetail::query();
+
+        // 2. ถ้ามีการส่งค่า 'search' มา
+        if ($request->has('search') && $request->search != '') {
+            $search = $request->search;
+
+            // ตรงนี้จะเป็นการทำให้ค้นหาจากหลายคอลัมน์ (ชื่อ หรือ รหัส หรือ วิชา)
+            $query->where(function($q) use ($search) {
+                $q->where('student_name', 'LIKE', "%{$search}%")
+                    ->orWhere('student_code', 'LIKE', "%{$search}%")
+                    ->orWhere('course_name', 'LIKE', "%{$search}%")
+                    ->orWhere('course_code', 'LIKE', "%{$search}%");
+            });
+        }
+
+        // สั่งดึงข้อมูล (ถ้าไม่มีการค้นหา ก็จะได้ข้อมูลทั้งหมดเหมือนเดิม)
+        $enrollments = $query->get();
+
         $students = Student::all();
         $courses = Course::all();
         $departments = Department::all();

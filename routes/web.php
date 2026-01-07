@@ -7,4 +7,4 @@ Route::resource('enrollments', EnrollmentController::class);
 Route::get('/', [EnrollmentController::class, 'index']);
 Route::post('/students', [EnrollmentController::class, 'storeStudent'])->name('students.store');
 Route::get('/students/{id}', [EnrollmentController::class, 'showStudent'])->name('students.show');
-Route::get('/report', [EnrollmentController::class, 'report'])->name('enrollments.report');
+Route::get('/report', [EnrollmentController::class, 'report'])->name('report.index');
