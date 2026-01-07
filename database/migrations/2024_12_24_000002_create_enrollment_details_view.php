@@ -12,8 +12,9 @@ return new class extends Migration
      */
     public function up(): void
     {
+        DB::statement("DROP VIEW IF EXISTS enrollment_details");
         DB::statement("
-            CREATE OR REPLACE VIEW enrollment_details AS
+            CREATE VIEW enrollment_details AS
             SELECT
                 e.id as enrollment_id,
                 s.student_code,
